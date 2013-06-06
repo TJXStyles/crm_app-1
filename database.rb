@@ -1,15 +1,16 @@
-require_relative "contact.rb"
+require_relative "contact"
 
 class Database
 
 	attr_accessor :database_array
-	contact = Contact.new
-
+	
+	
 	def initialize
 		@database_array = []
 	end
 
 	def add_contact
+		
 		puts "Enter first name"
 		first_name = gets.chomp
 		puts "Enter last name"
@@ -18,7 +19,8 @@ class Database
 		email = gets.chomp
 		puts "Enter any notes"
 		notes = gets.chomp
-		id = @contact.id
+		@database_array << Contact.new(first_name,last_name,email,notes)
+
 	end
 
 	# can modify any of the five contact attributes for a given contact
@@ -27,8 +29,14 @@ class Database
 	end
 
 	# displays all contacts in the database with complete information
-	def display_all_contact(contact)
-		
+	def display_all_contacts
+		for i in 0..@database_array.length-1
+			puts ""
+			@database_array[i].display_contacts
+			puts ""
+		end
+			
+
 	end
 
 	# displays only one specific contact

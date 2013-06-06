@@ -1,6 +1,6 @@
 class Contact
 
-	# @@new_id = 0
+	@@new_id = 0
 	attr_accessor :id, :first_name, :last_name, :email, :notes
 	
 
@@ -24,8 +24,11 @@ class Contact
 
 
 	# increments id when the add_contact method is called from class Database
-	# def id_counter
-	# 	@@new_id += 1
-	# end
+	def id_counter
+		@@new_id += 1
+	end
 
 end
+
+contact = Contact.new("A","k","email","notes")
+contact.display_contacts

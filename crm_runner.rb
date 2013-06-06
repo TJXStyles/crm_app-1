@@ -1,20 +1,23 @@
-require_relative "contact.rb"
-require_relative "database.rb"
+require_relative "contact"
+require_relative "database"
 
 class CrmRunner
 
 	def self.run
 		@database = Database.new
-		@contact = Contact.new
 
 		while true
 
-			puts "Enter your choice: "
+			puts "Enter your choice: 'add' or 'display all'"
 			choice = gets.chomp
 			case choice
-			when add
+			when "add"
 				@database.add_contact
+			when "display all"
+				@database.display_all_contacts
 			end
+
+			
 
 
 
