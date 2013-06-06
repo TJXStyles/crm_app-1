@@ -17,6 +17,10 @@ class CrmRunner
 				@database.display_all_contacts
 			when "modify"
 				@database.modify_contact
+			when "display attribute"
+				@database.display_by_attribute
+			when "display contact"
+				@database.display_particular_contact
 			end
 
 			

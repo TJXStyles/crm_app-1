@@ -26,7 +26,7 @@ class Database
 	# can modify any of the five contact attributes for a given contact
 	def modify_contact
 
-		puts "Attribute to modify (ID, first name, last name, email): "
+		puts "\nAttribute to modify (ID, first name, last name, email): "
 		attribute_to_modify = gets.chomp
 
 		puts "are you sure? (yes/no)"
@@ -56,7 +56,7 @@ class Database
 							x.id || x.first_name || x.last_name || x.email == contact_to_modify}].email = new_value
 
 					else
-						puts "Please try again!"
+						puts "Please try again!\n"
 					end
 			end
 	end
@@ -73,16 +73,40 @@ class Database
 	end
 
 	# displays only one specific contact
-	def display_particular_contact(contact)
-		
+	def display_particular_contact
+		puts "Which contact would you like displayed? (ID, first name, last name, email):"
+		contact_display = gets.chomp.downcase
+			@database_array.each do |x|
+				if contact_display == x.id || contact_display == x.first_name ||
+					contact_display == x.last_name || contact_display ==x.email
+					x.display_contacts
+				end
+			end
 	end
 
 	# display all instances of a specific attribute in the database
-	def display_by_attribute(attribute)
-		
+	def display_by_attribute
+		puts "\nEnter attribute to display (ID, first name, last name, email):"
+		attribute = gets.chomp.downcase
+
+		if attribute == "id"
+			@database_array.each {|x| puts x.id}
+
+		elsif attribute == "first name"
+			@database_array.each {|x| puts x.first_name}
+
+		elsif attribute == "last name"
+			@database_array.each {|x| puts x.last_name}
+
+		elsif attribute == "email"
+			@database_array.each {|x| puts x.email}
+
+		else
+			puts "Please try again!"
+		end		
 	end
 
-	def delete_contact(contact)
+	def delete_contact
 		
 	end
 
