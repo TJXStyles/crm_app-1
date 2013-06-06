@@ -24,8 +24,41 @@ class Database
 	end
 
 	# can modify any of the five contact attributes for a given contact
-	def modify_contact(contact)
-		
+	def modify_contact
+
+		puts "Attribute to modify (ID, first name, last name, email): "
+		attribute_to_modify = gets.chomp
+
+		puts "are you sure? (yes/no)"
+		user_answer = gets.chomp
+
+			if user_answer == "yes"
+
+				puts "Which contact do you want modified?"
+				contact_to_modify = gets.chomp
+
+				puts "Please enter new value"
+				new_value = gets.chomp
+					if attribute_to_modify == "id" 
+						@database_array[@database_array.index {|x| 
+							x.id||x.first_name||x.last_name||x.email == contact_to_modify}].new_name = new_value
+
+					elsif attribute_to_modify == "first name" 
+					 	@database_array[@database_array.index {|x| 
+					 		x.id || x.first_name || x.last_name || x.email == contact_to_modify}].first_name = new_value
+
+					elsif attribute_to_modify == "last name" 
+						@database_array[@database_array.index {|x| 
+							x.id || x.first_name || x.last_name || x.email == contact_to_modify}].last_name = new_value				
+
+					elsif attribute_to_modify == "email" 
+						@database_array[@database_array.index {|x| 
+							x.id || x.first_name || x.last_name || x.email == contact_to_modify}].email = new_value
+
+					else
+						puts "Please try again!"
+					end
+			end
 	end
 
 	# displays all contacts in the database with complete information

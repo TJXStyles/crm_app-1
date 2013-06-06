@@ -1,34 +1,19 @@
-class Contact
+if attribute_to_modify == "id" 
+						@database_array[@database_array.index do |x|
+							x.id == contact_to_modify].new_name = new_value
+						end
 
-	@@new_id = 0
-	attr_accessor :id, :first_name, :last_name, :email, :notes
-	
+					elsif attribute_to_modify == "first name" 
+					 	@database_array[@database_array.index do |x|
+					 		(x.first_name || x.id || x.last_name || x.email) == contact_to_modify].first_name = new_value				
+					 	end
 
-	def initialize(first,last,email,notes)
-		# id will increment each time a new contact is created
-		@id = 100
-		@first_name = first
-		@last_name = last
-		@email = email
-		@notes = notes
-	end
+					elsif attribute_to_modify == "last name" 
+						@database_array[@database_array.index do |x|
+							x.last_name == contact_to_modify].last_name = new_value				
+						end
 
-	def display_contacts
-		puts "ID: #{@id}"
-		puts "First name: #{@first_name}"
-		puts "Last name: #{@last_name}"
-		puts "Email: #{@email}"
-		puts "Notes: #{@notes}"
-	end
-
-
-
-	# increments id when the add_contact method is called from class Database
-	def id_counter
-		@@new_id += 1
-	end
-
-end
-
-contact = Contact.new("A","k","email","notes")
-contact.display_contacts
+					elsif attribute_to_modify == "email" 
+						@database_array[@database_array.index do |x|
+							x.email == contact_to_modify].email = new_value				
+						end

@@ -8,20 +8,21 @@ class CrmRunner
 
 		while true
 
-			puts "Enter your choice: 'add' or 'display all'"
+			puts "Enter your choice: 'add', 'display all', 'modify', 'display attribute'"
 			choice = gets.chomp
 			case choice
 			when "add"
 				@database.add_contact
 			when "display all"
 				@database.display_all_contacts
+			when "modify"
+				@database.modify_contact
 			end
 
 			
 
 
 
-		
 		
 
 
