@@ -4,7 +4,7 @@ class Contact
 	attr_accessor :id, :first_name, :last_name, :email, :notes
 	
 
-	def initialize(first,last,email,notes)
+	def initialize(first, last, email, notes)
 		# id will increment each time a new contact is created
 		@id = id_counter
 		@first_name = first
@@ -18,7 +18,7 @@ class Contact
 		puts "First name: #{@first_name.capitalize}"
 		puts "Last name: #{@last_name.capitalize}"
 		puts "Email: #{@email}"
-		puts "Notes: #{@notes}"
+		puts "Notes: #{@notes}\n"
 	end
 	#increments id when the add_contact method is called from class Database
 	def id_counter

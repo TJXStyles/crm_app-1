@@ -9,7 +9,6 @@ class Database
 	end
 
 	def add_contact
-		
 		puts "Enter first name: "
 		first_name = gets.chomp.downcase
 		puts "Enter last name: "
@@ -23,7 +22,6 @@ class Database
 
 	# can modify any of the five contact attributes for a given contact
 	def modify_contact
-
 		puts "\nAttribute to modify (ID, first name, last name, email): "
 		attribute_to_modify = gets.chomp.downcase
 
@@ -106,7 +104,7 @@ class Database
 		puts "Select a contact to delete (ID, first name, last name, email):"
 		contact_to_delete = gets.chomp.downcase
 		index = @database_array.index do |x| 
-			x.id||x.first_name||x.last_name||x.email == contact_to_delete
+			x.id || x.first_name || x.last_name || x.email == contact_to_delete
 		end
 
 		@database_array[index].display_contacts
@@ -115,8 +113,5 @@ class Database
 		if confirmation == "yes"
 			@database_array.delete_at(index)
 		end
-
 	end
-
-
 end

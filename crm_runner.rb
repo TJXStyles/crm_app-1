@@ -8,7 +8,7 @@ class CrmRunner
 
 		while true
 
-			puts "\nEnter your choice: 'add', 'display all', 'modify', 'display attribute', 'display contact, 'delete' 'exit'"
+			puts "\nEnter your choice: \n('add', 'display all', 'modify', 'display attribute', 'display contact, 'delete' 'exit')"
 
 			choice = gets.chomp
 			case choice
