@@ -15,14 +15,11 @@ class Contact
 
 	def display_contacts
 		puts "ID: #{@id}"
-		puts "First name: #{@first_name}"
-		puts "Last name: #{@last_name}"
+		puts "First name: #{@first_name.capitalize}"
+		puts "Last name: #{@last_name.capitalize}"
 		puts "Email: #{@email}"
 		puts "Notes: #{@notes}"
 	end
-
-
-
 	#increments id when the add_contact method is called from class Database
 	def id_counter
 		@@new_id += 1

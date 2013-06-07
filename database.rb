@@ -4,44 +4,42 @@ class Database
 
 	attr_accessor :database_array
 	
-	
 	def initialize
 		@database_array = []
 	end
 
 	def add_contact
 		
-		puts "Enter first name"
-		first_name = gets.chomp
-		puts "Enter last name"
-		last_name = gets.chomp
-		puts "Enter email"
-		email = gets.chomp
-		puts "Enter any notes"
+		puts "Enter first name: "
+		first_name = gets.chomp.downcase
+		puts "Enter last name: "
+		last_name = gets.chomp.downcase
+		puts "Enter email: "
+		email = gets.chomp.downcase
+		puts "Enter any notes: "
 		notes = gets.chomp
 		@database_array << Contact.new(first_name,last_name,email,notes)
-
 	end
 
 	# can modify any of the five contact attributes for a given contact
 	def modify_contact
 
 		puts "\nAttribute to modify (ID, first name, last name, email): "
-		attribute_to_modify = gets.chomp
+		attribute_to_modify = gets.chomp.downcase
 
-		puts "are you sure? (yes/no)"
-		user_answer = gets.chomp
+		puts "Are you sure? (yes/no)"
+		user_answer = gets.chomp.downcase
 
 			if user_answer == "yes"
 
 				puts "Which contact do you want modified?"
-				contact_to_modify = gets.chomp
+				contact_to_modify = gets.chomp.downcase
 
-				puts "Please enter new value"
-				new_value = gets.chomp
+				puts "Please enter new value: "
+				new_value = gets.chomp.downcase
 					if attribute_to_modify == "id" 
 						@database_array[@database_array.index {|x| 
-							x.id||x.first_name||x.last_name||x.email == contact_to_modify}].new_name = new_value
+							x.id || x.first_name || x.last_name || x.email == contact_to_modify}].new_name = new_value
 
 					elsif attribute_to_modify == "first name" 
 					 	@database_array[@database_array.index {|x| 
@@ -67,17 +65,16 @@ class Database
 			puts ""
 			@database_array[i].display_contacts
 			puts ""
-		end
-			
+		end	
 	end
 
 	# displays only one specific contact
 	def display_particular_contact
-		puts "Which contact would you like displayed? (ID, first name, last name, email):"
+		puts "Which contact would you like displayed?: "
 		contact_display = gets.chomp.downcase
 			@database_array.each do |x|
 				if contact_display == x.id || contact_display == x.first_name ||
-					contact_display == x.last_name || contact_display ==x.email
+					contact_display == x.last_name || contact_display == x.email
 					x.display_contacts
 				end
 			end
