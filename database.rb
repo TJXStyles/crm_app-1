@@ -69,7 +69,6 @@ class Database
 			puts ""
 		end
 			
-
 	end
 
 	# displays only one specific contact
@@ -107,7 +106,19 @@ class Database
 	end
 
 	def delete_contact
-		
+		puts "Select a contact to delete (ID, first name, last name, email):"
+		contact_to_delete = gets.chomp.downcase
+		index = @database_array.index do |x| 
+			x.id||x.first_name||x.last_name||x.email == contact_to_delete
+		end
+
+		@database_array[index].display_contacts
+		puts "Is this the contact you want to delete? (yes/no)"
+		confirmation = gets.chomp.downcase
+		if confirmation == "yes"
+			@database_array.delete_at(index)
+		end
+
 	end
 
 
